@@ -37,3 +37,23 @@ switch (true) {
     default:
         console.log("It was a draw. :(");
 }
+
+var billAmounts = [124, 48, 268];
+
+var tips = billAmounts.map(function(billAmount) {
+    switch (true) {
+        case billAmount < 50:
+            return 0.2 * billAmount;
+        case billAmount > 50 && billAmount < 200:
+            return 0.15 * billAmount;
+        default:
+            return 0.1 * billAmount;
+    }
+});
+
+var finalPaidAmounts = billAmounts.map(function(val, idx) {
+    return val + tips[idx];
+});
+
+console.log('Tips ' + tips);
+console.log('Final Paid Amounts: ' + finalPaidAmounts);
